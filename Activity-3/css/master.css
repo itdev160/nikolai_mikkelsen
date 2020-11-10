@@ -1,0 +1,128 @@
+﻿body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 100%;
+}
+
+/*style for the header*/
+
+header img {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*header {
+    max-width: 150px;
+    text-align: center;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 300%;
+    text-align: center;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes blink {
+    from {
+        color: #58A84A;
+    }
+
+    to {
+        color: dodgerblue;
+    }
+}
+
+.blink {
+    color: #58A84A;
+    animation: blink 4s 3 alternate;
+    animation-iteration-count: infinite;
+}
+
+.boxit {
+    margin: 10px, 50px, 10px, 50px;
+    padding: 1rem;
+    background-color: dodgerblue;
+}
+
+h3 {
+    text-align: center;
+    color: #58A84A;
+}
+
+intro {
+    
+    padding: 0px 50px 50px 50px;
+    max-width: 600px;
+    font-family: 'Raleway', sans-serif;
+    font-weight:700;
+    text-align: center;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*style for main*/
+
+main{clear: left}
+    main .indent {
+        text-indent: 2em;
+        font-size: 125%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    justify-content: center;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+p {
+    font-family: Geneva;
+}
+
+.about {
+    text-align: center;
+    text-indent: 2em;
+    font-size: 100%;
+}
+
+
+
+/*style for footer*/
+footer p {
+    font-size: 75%;
+    text-align: right;
+    color: darkgray;
+    font-weight: bold;
+}
