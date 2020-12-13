@@ -4,7 +4,6 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var startButton = document.getElementById("startButton");
 
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
@@ -21,8 +20,6 @@ span.onclick = function () {
 }
 var created = false;
 
-var myDropdown = document.getElementById("myDropdown");
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
 
@@ -32,48 +29,28 @@ window.onclick = function (event) {
 
     }
     if (!event.target.matches('.materialButton')) {
-        var materials = ["Material", "Acrylic", "Aluminum", "Armed Graphite Gasket", "Hard Brass", "Hard Foam", "PVC", "Polycarbonate",
+        var materials = ["Acrylic", "Aluminum", "Armed Graphite Gasket", "Hard Brass", "Hard Foam", "PVC", "Polycarbonate",
             "Polypropylene", "Wood"];
-        var select = document.getElementById('selectMaterial');
+        var sel = document.getElementById('myDropdown');
         if (!created)
         {
             for (var i = 0; i < materials.length; i++) {
                 var opt = document.createElement('option');
                 opt.innerHTML = materials[i];
                 opt.value = materials[i];
-                select.appendChild(opt);
+                sel.appendChild(opt);
             }
             created = true;
         }
-        
 
     }
-
-
-    // When the user selects a material display the thickness input
-    //var selectMaterial = document.getElementById("selectMaterial");
-
-    
-    // selectMaterial.onchange = function () {    
-        
-    //     thickness.style.display = "block";
-    //   };
-
-      document.getElementById("myDropdown").onchange = function() {
-        if (this.value != "Material") {
-            thickness.style.display = true;
-        }
-    };
-
-
 }
 
 
-// function materialButton() {
-//     document.getElementById("myDropdown").classList.toggle("show");
-// }
 
-
+function materialButton() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
 
  // var material = document.getElementById("material");
         // var options = ["1", "2", "3", "4", "5"];

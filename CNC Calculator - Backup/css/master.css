@@ -454,76 +454,26 @@ p {
   border-radius: 10px;
 }
 
-
-/* Start button on hover & focus */
-.startButton:hover, .startButton:focus {
-  animation: none;
-  outline: none;
-  background-color: #05c54e;
-  box-shadow: 0 0 10px#2b2d2f;
-  border-radius: 10px;
-  
-}
-
-#selectMaterial {
-  animation: glowing-outer 3000ms infinite;
+.materialButton {
+  animation: glowing 3000ms infinite;
   Font-Family: Roboto-Regular, Arial, sans-serif;
-  background-color: #05c54e;
+  background-color: #2b2d2f;
   color: white;
   border: none;
   padding: 10px;
   font-size: 20px;
   cursor: pointer;
   border-radius: 10px;
-  outline: none;
 }
 
-#selectMaterial:hover, .materialButton:focus {
-  
+/* Start button on hover & focus */
+.startButton:hover, .startButton:focus, .materialButton:hover, .materialButton:focus {
+  animation: none;
   outline: none;
-  color: #666;
-  background-color: white;
+  background-color: #05c54e;
+  box-shadow: 0 0 10px#2b2d2f;
   border-radius: 10px;
   
-}
-
-.dropdown-content:hover
-{
-  outline: none;
-  color: #666;
-  background-color: white;
-  border-radius: 10px;
-  
-}
-
-.thickness {
-  display: none;
-  animation: glowing-outer 3000ms infinite;
-  Font-Family: Roboto-Regular, Arial, sans-serif;
-  background-color:white;
-  color:#666;
-  border: none;
-  padding: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 10px;
-  outline: none;
-}
-
-/* Material button glow effect */
-@keyframes glowing-outer {
-  0% {
-    background-color:none;
-    box-shadow: 0 0 5px#05c54e;
-  }
-  50% {
-    background-color: none;
-    box-shadow: 0 0 20px #2b2d2f;
-  }
-  100% {
-    background-color: none;
-    box-shadow: 0 0 5px #05c54e;
-  }
 }
 
 /* Start button glow effect */
@@ -585,18 +535,16 @@ p {
   cursor: pointer;
 }
 
-
-
 /* The container <div> - needed to position the dropdown content */
-/* .dropdown {
+.dropdown {
   z-index: 2;
   border-block: none;
   position: relative;
   display: inline-block;
-}  */
+} 
 
 /* Dropdown Content (Hidden by Default) */
-/* .dropdown-content {
+.dropdown-content {
   margin-top: 10px;
   display: none;
   position: relative;
@@ -605,30 +553,20 @@ p {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-radius: 10px;
-} */
+}
 
-/* Options inside the dropdown */
-/* .dropdown-content a {
+/* Links inside the dropdown */
+.dropdown-content a {
   Font-Family: Roboto-Regular, Arial, sans-serif;
-  color: #666;
+  color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   border-radius: 10px;
-} */
-
-/* .dropdown-content:hover { */
-  /* Font-Family: Roboto-Regular, Arial, sans-serif;
-  color: white;
-  background-color: #05c54e;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border-radius: 10px;
-} */
+}
 
 /* Change color of dropdown links on hover */
-/* .dropdown-content a:hover {background-color: #ddd} */
+.dropdown-content a:hover {background-color: #ddd}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-/* .show {display:block;} */
+.show {display:block;}
