@@ -465,6 +465,11 @@ p {
   
 }
 
+/*Show available bits button hover */
+#bitsButton {
+  visibility: hidden;
+}
+
 #selectMaterial {
   animation: glowing-outer 3000ms infinite;
   Font-Family: Roboto-Regular, Arial, sans-serif;
@@ -476,6 +481,7 @@ p {
   cursor: pointer;
   border-radius: 10px;
   outline: none;
+  z-index: 1;
 }
 
 #selectMaterial:hover, .materialButton:focus {
@@ -496,10 +502,12 @@ p {
   
 }
 
-.thickness {
-  display: none;
+#thickness, #rpm {
+  margin-top: 1em;
+  visibility: hidden;
   animation: glowing-outer 3000ms infinite;
   Font-Family: Roboto-Regular, Arial, sans-serif;
+  width: 45%;
   background-color:white;
   color:#666;
   border: none;
@@ -507,6 +515,25 @@ p {
   font-size: 20px;
   cursor: pointer;
   border-radius: 10px;
+  outline: none;
+  z-index: 1;
+}
+
+label {
+  float: right;
+  display: inline;
+  overflow: hidden;
+  Font-Family: Roboto-Regular, Arial, sans-serif;
+  color: #666;
+}
+
+#enterThickness, #enterRPM {
+  Font-Family: Roboto-Regular, Arial, sans-serif;
+  width: 75%;
+  font-size: 20px;
+  cursor: text;
+  color:#666;
+  border: none;
   outline: none;
 }
 
@@ -546,7 +573,7 @@ p {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 2; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */

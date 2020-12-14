@@ -84,24 +84,36 @@
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
-                <div class="modal-content">
+                < class="modal-content">
                     <span class="close">&times;</span>
-                    <p>Select Material</p>
                     <select id="selectMaterial">
 
                         <div id="myDropdown" class="dropdown-content"> </div>
 
                     </select>
-                    
-                    <div class="thickness">
-                        <p>Enter Material Thickness</p>
-                        <input id="enterThickness">
+
+                    <div id="thickness">
+                        <!-- <input id="enterThickness"> -->
+                        <input id='enterThickness' class="input" type="number" min="0" max="50" step="1"
+                            placeholder='Enter Material Thickness in Millimeters' /><span class="input-group-text"> /MM
+                        </span>
                     </div>
 
-                </div>
+                    <div id="rpm">
+                        <!-- <input id="enterThickness"> -->
+                        <input id='enterRPM' class="input" type="number" min="5000" max="60000" step="5000"
+                            placeholder='Enter Max Spindle RPM' /><span class="input-group-text"> /RPM </span>
+                    </div>
+
+                    <div id="bitList">
+                        <button id="bitsButton" class="startButton">SHOW AVAILABLE MILLING BITS</button>
+                    </div>
+                    <!-- <button id="calcButton" class="calcButton">CALCULATE CUTTING PARAMETERS</button> -->
+
+
+
             </div>
-
-
+    </div>
 
 </body>
 

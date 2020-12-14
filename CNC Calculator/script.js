@@ -1,9 +1,18 @@
+// Variable declarations
+
+var created = false;
+
+var thicknessValue;
+var enteredThickness = document.getElementById(enterThickness);
+
+var rpmValue;
+var enteredRPM = document.getElementById(enterRPM);
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var startButton = document.getElementById("startButton");
-
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -17,26 +26,28 @@ startButton.onclick = function () {
 span.onclick = function () {
     modal.style.display = "none";
 
-
 }
-var created = false;
 
-var myDropdown = document.getElementById("myDropdown");
+//Get the button the checks for bit compatibility
+var getBits = document.getElementsById("getBits");
+
+//Get the button that runs the calculator
+// var calcButton = document.getElementById("calcButton");
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
 
     if (event.target == modal) {
         modal.style.display = "none";
-        
+
 
     }
     if (!event.target.matches('.materialButton')) {
-        var materials = ["Material", "Acrylic", "Aluminum", "Armed Graphite Gasket", "Hard Brass", "Hard Foam", "PVC", "Polycarbonate",
+        var materials = ["Select Material", "Acrylic", "Aluminum", "Armed Graphite Gasket", "Hard Brass", "Hard Foam", "PVC", "Polycarbonate",
             "Polypropylene", "Wood"];
         var select = document.getElementById('selectMaterial');
-        if (!created)
-        {
+        if (!created) {
             for (var i = 0; i < materials.length; i++) {
                 var opt = document.createElement('option');
                 opt.innerHTML = materials[i];
@@ -45,28 +56,70 @@ window.onclick = function (event) {
             }
             created = true;
         }
-        
+
 
     }
 
+    var thickness = document.getElementById("thickness");
 
-    // When the user selects a material display the thickness input
-    //var selectMaterial = document.getElementById("selectMaterial");
-
-    
-    // selectMaterial.onchange = function () {    
+    document.getElementById("selectMaterial").onchange = function () {
         
-    //     thickness.style.display = "block";
-    //   };
-
-      document.getElementById("myDropdown").onchange = function() {
-        if (this.value != "Material") {
-            thickness.style.display = true;
+        if (this.value != "Select Material") {
+            thickness.style.visibility = "visible";
         }
-    };
 
+        if (this.value == "Select Material") {
+            thickness.style.visibility = "hidden";     
+    }
+
+};
+
+enterThickness.addEventListener('change', function enteredThickness() {
+
+    thicknessValue = document.getElementById('enterThickness').value;
+    
+    if (thicknessValue > 50){
+        window.alert("Please enter a lower material thickness.");
+    }
+
+    else {rpm.style.visibility = "visible";}
+    // rpm.style.visibility = "visible";
+    // window.alert(thicknessValue);
+
+}); 
+
+var rpm = document.getElementById("rpm");
+
+enterRPM.addEventListener('change', function enteredRPM() {
+
+    rpmValue = document.getElementById('enterRPM').value;
+    // window.alert(rpmValue);
+
+    if (rpmValue > 60000 | rpmValue < 5000){
+        window.alert("Please enter spindle RPM between 5,000 and 60,000.");
+    }
+
+});
+
+
+// if (rpmValue != null && thicknessValue != null) {
+//     bitsButton.style.visibility = "visible";
+// }
 
 }
+
+
+
+// //wire up even handlers
+// window.addEventListener('load', function () {
+//     var newButton = get('new-button');
+//     var cancelButton = get('cancel-button');
+//     var saveButton = get('save-button');
+
+//     newButton.addEventListener('click', openModal);
+//     cancelButton.addEventListener('click', closeModal);
+//     saveButton.addEventListener('click', saveContent);
+// });
 
 
 // function materialButton() {
@@ -161,4 +214,3 @@ window.onclick = function (event) {
 //       }
 //     }
 //   }
-
