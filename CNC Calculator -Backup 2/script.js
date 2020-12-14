@@ -15,12 +15,6 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 startButton.onclick = function () {
-    enterThickness.value = null;
-    enterRPM.value = null;
-    selectMaterial.value = "Select Material";
-    thickness.style.visibility = "hidden";
-    rpm.style.visibility = "hidden";
-    bitList.style.visibility = "hidden";
     modal.style.display = "block";
 }
 
@@ -28,15 +22,9 @@ startButton.onclick = function () {
 span.onclick = function () {
     modal.style.display = "none";
 
+
 }
-
-//Get the button the checks for bit compatibility
-// var getBits = document.getElementsById("getBits");
-
 var created = false;
-
-var materialValue;
-var materialSelected = document.getElementsByClassName(selectMaterial);
 
 var thicknessValue;
 var enteredThickness = document.getElementById(enterThickness);
@@ -44,18 +32,16 @@ var enteredThickness = document.getElementById(enterThickness);
 var rpmValue;
 var enteredRPM = document.getElementById(enterRPM);
 
-var bitsButton = document.getElementById(bitsButton);
-
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
 
     if (event.target == modal) {
         modal.style.display = "none";
+
+
     }
-
     if (!event.target.matches('.materialButton')) {
-
         var materials = ["Select Material", "Acrylic", "Aluminum", "Armed Graphite Gasket", "Hard Brass", "Hard Foam", "PVC", "Polycarbonate",
             "Polypropylene", "Wood"];
         var select = document.getElementById('selectMaterial');
@@ -72,77 +58,83 @@ window.onclick = function (event) {
 
     }
 
-    selectMaterial.addEventListener('change', function materialSelected() {
+    var thickness = document.getElementById("thickness");
 
-        materialValue = document.getElementById("selectMaterial").value;
-
-        thickness.style.visibility = "hidden";
-        rpm.style.visibility = "hidden";
-        bitList.style.visibility = "hidden";
-
+    document.getElementById("selectMaterial").onchange = function () {
+        
         if (this.value != "Select Material") {
             thickness.style.visibility = "visible";
         }
 
-        // materialSelected = selectMaterial.value;
+        if (this.value == "Select Material") {
+            thickness.style.visibility = "hidden";     
+    }
 
-    });
+};
 
-    var thickness = document.getElementById("thickness");
+enterThickness.addEventListener('change', function enteredThickness() {
 
-    // document.getElementById("selectMaterial").onchange = function () {
+    thicknessValue = document.getElementById('enterThickness').value;
+    
+    if (thicknessValue > 50){
+        window.alert("Please enter a lower material thickness.");
+    }
 
-    //     if (this.value != "Select Material") {
-    //         thickness.style.visibility = "visible";
-    //     }
+    else {rpm.style.visibility = "visible";}
+    // rpm.style.visibility = "visible";
+    // window.alert(thicknessValue);
 
-    // };
+}); 
 
-    enterThickness.addEventListener('change', function enteredThickness() {
+var rpm = document.getElementById("rpm");
 
-        thicknessValue = document.getElementById('enterThickness').value;
+enterRPM.addEventListener('change', function enteredRPM() {
 
-        rpm.style.visibility = "hidden";
-        bitList.style.visibility = "hidden";
+    rpmValue = document.getElementById('enterRPM').value;
+    // window.alert(rpmValue);
 
-        if (thicknessValue > 50) {
-            window.alert("Please enter a lower material thickness.");
-        }
+    if (rpmValue > 60000 | rpmValue < 5000){
+        window.alert("Please enter spindle RPM between 5,000 and 60,000.");
+    }
 
-        if (materialValue != "Select Material") {
-            rpm.style.visibility = "visible";
-        }
-
-        // rpm.style.visibility = "visible";
-        // window.alert(thicknessValue);
-
-    });
-
-    var rpm = document.getElementById("rpm");
-
-    enterRPM.addEventListener('change', function enteredRPM() {
-
-        rpmValue = document.getElementById('enterRPM').value;
-
-        bitList.style.visibility = "hidden";
-
-        // bitList.style.visibility = "hidden";
-
-        if (rpmValue > 60000 | rpmValue < 5000) {
-            window.alert("Please enter spindle RPM between 5,000 and 60,000.");
-        }
-
-        if (rpmValue != null) {
-            bitList.style.visibility = "visible";
-        }
-
-    });
-
-
+});
 
 }
 
 
+
+// //wire up even handlers
+// window.addEventListener('load', function () {
+//     var newButton = get('new-button');
+//     var cancelButton = get('cancel-button');
+//     var saveButton = get('save-button');
+
+//     newButton.addEventListener('click', openModal);
+//     cancelButton.addEventListener('click', closeModal);
+//     saveButton.addEventListener('click', saveContent);
+// });
+
+
+// function materialButton() {
+//     document.getElementById("myDropdown").classList.toggle("show");
+// }
+
+
+
+ // var material = document.getElementById("material");
+        // var options = ["1", "2", "3", "4", "5"];
+
+        // function showMaterials() {
+
+        //     for (var i = 0; i < options.length; i++) {
+        //         var opt = options[i];
+        //         var el = document.createElement("div");
+        //         el.textContent = opt;
+        //         el.value = opt;
+
+        //         material.appendChild(el);
+        //     }
+        // }
 //Array for user defined RPM
 // var spindleMaxRPM = [];
 

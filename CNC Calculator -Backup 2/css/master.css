@@ -465,20 +465,12 @@ p {
   
 }
 
-/* Bits Button */
-#bitList {
-  visibility: hidden;
-}
-
-#selectMaterial, #thickness, #rpm {
-  width: 45%;
-  margin-top: 1em;
-  margin-bottom: 1em;
+#selectMaterial {
+  animation: glowing-outer 3000ms infinite;
   Font-Family: Roboto-Regular, Arial, sans-serif;
-  background-color: white;
-  color: #666;
-  border: 3px solid #05c54e;
-  box-shadow: 0 0 10px#2b2d2f;
+  background-color: #05c54e;
+  color: white;
+  border: none;
   padding: 10px;
   font-size: 20px;
   cursor: pointer;
@@ -487,11 +479,7 @@ p {
   z-index: 1;
 }
 
-#selectMaterial:focus, #thickness:hover, #rpm:hover {
-  animation: glowing-outer 3000ms infinite;
-}
-
-.materialButton:focus {
+#selectMaterial:hover, .materialButton:focus {
   
   outline: none;
   color: #666;
@@ -510,12 +498,24 @@ p {
 }
 
 #thickness, #rpm {
+  margin-top: 1em;
   visibility: hidden;
+  animation: glowing-outer 3000ms infinite;
+  Font-Family: Roboto-Regular, Arial, sans-serif;
+  background-color:white;
+  color:#666;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  z-index: 1;
 }
 
 #enterThickness, #enterRPM {
   Font-Family: Roboto-Regular, Arial, sans-serif;
-  width: 75%;
+  width: 50%;
   font-size: 20px;
   cursor: text;
   color:#666;
