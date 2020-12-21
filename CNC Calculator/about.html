@@ -42,7 +42,7 @@
                     <a href="cnc_calculator.html">CNC CALCULATOR</a>
                 </li>
                 <li>
-                    <a href="about.html">ABOUT US</a>
+                    <a href="about.html">PROJECT DOCUMENTATION</a>
                 </li>
 
             </ul>
@@ -52,20 +52,58 @@
 
             <div class="padding">
 
-                <div class="title">ABOUT US</div>
+                <div class="title">DESCRIPTION OF APPLICATION</div>
 
                 <p>
-                    The philosophy of BITS BLADES BELTS is to provide our customers with the highest quality product and
-                    a superior level of customer service for all their digital finishing consumables needs.
-                    For the absolute best quality blades, bits, conveyor, or replacement parts, at the best possible
-                    price, look no further than the BITS BLADES BELTS.
+                    The project is the development of a calculator that provides a user with settings required for CNC
+                    milling of a variety of materials. Currently the application only provides data for 2D milling where the bit is always
+                    engaged with material on both edges. This will be expanded on in future development.
+
+                    <br /><br />The calculator uses a script that loads a modal via <strong>startButton</strong> click. 
+                    From there the user is asked to select from an array materials. Once the materials has been selected
+                    by the user a <strong>selectMaterial.addEventListener</strong> triggers the <strong>
+                    thickness.style.visibility = "visible"</strong>. Once the user enters a thickness of the material to be
+                    calculated the <strong>rpm.style.visibility = "visible"</strong> is triggered and the user is prompted to 
+                    enter the RPM (rotations per minute). The range is between 5000 and 60000. If user enters anything below or above they will 
+                    receive a <strong>window.alert</strong> prompting them to enter a value between this. Same applies for the material thickness
+                    if the user enters anything above 50mm.
+
+                    <br /><br /> Once the parameters have been entered by the user a <strong>bitsButton.onclick</strong> fires a function that closes
+                    the current modal and opens another. The application then stores the values entered in to an array and displays this to the user. 
+                    A <strong>const Material</strong> is then created as well as <strong>bits</strong> which is then filtered by <strong>bits.plastic</strong>, 
+                    <strong>bits.metal</strong>, and <strong>bits.multipurpose</strong> comparing them to the <strong>material</strong> array comparing the boolean
+                    for true for these values. The filter also checks that the user input <strong>thicknessValue</strong> is less than the <strong>bits.cel</strong>.
+                    This then populates the select options to display for the user to select from and the 
+
+                    <br /><br /> When the user has chosen a bit the <strong>selectBitButton.onclick</strong> function closes the current modal and opens the next one.
+                    The function also creates the <strong>const selectedBit</strong> finds the bit parameters and stores this as the <strong>var bitValue</strong>.
+                    This is then used to run a series of if statements that first confirm that the <strong>(selectedBit.rpm >= rpmValue)</strong> or else defaults to 
+                    <strong>{ rpmBit = selectedBit.rpm }</strong>. 
+
+                    <br /><br />The boolean <strong>material.soft</strong> and <strong>material.hard</strong> are then checked and the correct chip load value is 
+                    then applied. This value is then stored as <strong>var hardness</strong> which is then used to calculate <strong>var feedRate</strong> via
+                    <strong>feedRate = (selectedBit.flutes * rpmBit * hardness)</strong>. From there the <strong> var numPass</strong> is calculated by
+                    <strong>(Math.ceil(thicknessValue / (selectedBit.ced / selectedBit.flutes)))</strong>. And then numPass is used to calculate the 
+                    <strong>passDepth</strong> if the <strong>(selectedBit.ced <= thicknessValue)</strong> by 
+                    <strong>(Math.round(((thicknessValue / numPass) + Number.EPSILON) * 100) / 100)</strong>. Otherwise in the case where the selectedBit.ced is greater
+                    than the thickness value then a default of <strong> passDepth = thicknessValue</strong> is applied. These values are then all displayed to the user along
+                    with a few other parameter such as the angle of cut, the number of flutes, etc.
+
+                    <br /><br />The user can exit the modal at any time by a closing it via the <strong>X</strong> or clicking outside the modal.
+                    This also resets the data stored in the application by trigger the <strong>refreshPage</strong> function. 
                 </p>
 
+                    <div class="title">FUTURE DEVELOPMENT</div>
                 <p>
-                    <br />As we are not locked into one line of proprietary branded machines we are able to buy in
-                    much higher volume and pass on the cost savings to our customers regardless
-                    of the machine brand you may use. Whether you’re happy with your current supplier, or not, it will
-                    pay for you to give us a try!
+                    Continuing with this application in ITDEV-161 will be the development of filtering product by manufacture, manufacture tooling options, which
+                    in turn will filter by types of insert tools available (bits, blades, punches, plotting pens, crease tools, etc). A series of recommended parameters
+                    for cutting will then be presented. In addition the materials available will be greatly expanded on by having categories/types of materials
+                    which then have available materials displayed. 
+
+                    <br /><br />In addition the goal is for users to be able to enter their own materials and parameters to submit back to the application and stored by account.
+                    These can then be accessed by the individual user in the future and upon review by admin (developer) could be added to the general materials database. Which
+                    is the method I would like to move towards in the future which would probably entail converting quite a bit of this to php or at minimum using php to populate
+                    the JavaScript arrays.
                 </p>
             </div>
 

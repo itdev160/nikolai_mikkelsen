@@ -1,0 +1,665 @@
+﻿.page {
+  display: grid;
+  grid-template-columns: 3fr 5fr 3fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "head head head" "navi navi navi" "sec1 sec2 sec3" "sec4 sec5 sec6" "foot foot foot";
+}
+
+header {
+  grid-area: head;
+}
+
+nav_menu {
+  grid-area: navi;
+}
+
+footer {
+  grid-area: foot;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    grid-gap: 0;
+  }
+
+  header {
+    padding-bottom: 1.5em;
+    display: grid;
+    grid-template: repeat(2, auto) / 1fr;
+    grid-gap: 0.3em;
+    justify-items: center;
+  }
+
+  #nav_menu {
+    display: none;
+  }
+
+  #mobile_menu {
+    display: block;
+    grid-area: navi;
+  }
+
+  main {
+    margin: 0;
+    grid-template: auto / 1fr;
+  }
+}
+
+/*style for the header*/
+header {
+  display: flex;
+  grid-area: head;
+  width: 100%;
+  float: left;
+  z-index: 1;
+  background-color: #2b2d2f;
+  text-decoration: none;
+  color: white;
+  font-weight: normal;
+  text-align: left;
+}
+
+.img_header {
+  margin-left: 2%;
+  padding-top: 0.5%;
+  max-width: 25%;
+  height: auto;
+}
+
+.img_header {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+}
+.img_header:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+/*Navigation menu CSS*/
+#nav_menu {
+  grid-area: navi;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  z-index: 1000;
+  list-style: none;
+  width: 100%;
+  background-color: #05c54e;
+  height: 3.5em;
+  text-decoration: none;
+  color: white;
+  font-weight: normal;
+  text-align: left;
+  font-size: larger;
+}
+
+#nav_menu ul {
+  display: grid;
+  grid-template: auto / repeat(3, 1fr);
+  align-content: left;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: auto auto auto;
+}
+
+#nav_menu ul li {
+  display: block;
+}
+
+#nav_menu ul li a {
+  position: absolute;
+  display: block;
+  text-decoration: none;
+  background-color: #05c54e;
+  color: white;
+}
+
+#nav_menu ul li a:hover {
+  font-weight: Bolder;
+  transform: scale(1.25);
+}
+
+/*Slides paired with columns*/
+
+#slides {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  padding: 0px;
+  top: 3em;
+  list-style-type: none;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  -webkit-transition: opacity 2s;
+  -moz-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+  opacity: 0;
+}
+
+.img {
+  max-width: 100%;
+}
+
+.showing {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Contact form
+#contact_form {
+  grid-area: sec1;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  max-width: 100%;
+  min-width: 10%;
+}
+
+fieldset {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  border-radius: 5px;
+}
+
+legend {
+  text-align: left;
+  height: 100%;
+  font-size: 2em;
+  color: black;
+  margin-bottom: 0.5em;
+}
+
+contact_message {
+  font-size: 90%;
+  float: left;
+  margin-left: 1em;
+  margin-bottom: 1em;
+  height: 2em;
+  width: 50em;
+  text-indent: 0;
+}
+
+label,
+input,
+select {
+  color: #343434;
+  font-weight: bold;
+  font-size: 90%;
+  text-indent: 0.5em;
+}
+
+label {
+  float: left;
+  width: 12em;
+  text-align: right;
+}
+
+textarea,
+select {
+  margin-left: 1em;
+  height: 6em;
+  width: 40em;
+  border-radius: 5px;
+  padding-left: 4px;
+  border-color: black;
+}
+
+input,
+select {
+  font-weight: normal;
+  height: 2em;
+  width: 30em;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  text-indent: 0.5em;
+}
+
+input:required,
+input[required] {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+input:valid {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+input:invalid {
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+br {
+  clear: both;
+}
+
+#button_send {
+  font-size: large;
+  position: center;
+  width: 6em;
+  height: 2em;
+  border-radius: 6px;
+  color: white;
+  background-color: #05c54e;
+  font-weight: bold;
+  border: none;
+  text-indent: 0;
+}
+
+#button_send:hover {
+  background-color: white;
+  color: black;
+  border: 2px #05c54e;
+}
+
+#button_cancel {
+  font-size: large;
+  position: center;
+  width: 6em;
+  height: 2em;
+  border-radius: 6px;
+  color: white;
+  background-color: red;
+  font-weight: bold;
+  border: none;
+  text-indent: 0;
+}
+
+#button_cancel:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid red;
+}
+
+.buttonHolder {
+  text-align: center;
+} */
+
+h1 {
+  float: left;
+  padding-top: 0;
+  text-align: left;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  font-size: smaller;
+  font-weight: lighter;
+  color: #2b2d2f;
+}
+
+.title {
+  margin-top: 0.5em;
+  text-align: left;
+  height: 100%;
+  font-size: 2em;
+  color: #2b2d2f;
+  margin-bottom: 0.5em;
+  height: 100%;
+  font-family: Roboto-Regular, Arial, sans-serif;
+}
+
+@keyframes blink {
+  from {
+    color: #05c54e;
+  }
+
+  to {
+    color: white;
+  }
+}
+
+.blink {
+  color: #58a84a;
+  animation: blink 4s 3 alternate;
+  animation-iteration-count: infinite;
+}
+
+.boxit {
+  grid-area: sec5;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.padding {
+  padding: 2em;
+}
+
+.paddingLower {
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+.marginUpper {
+  margin-top: 2em;
+}
+
+.indent {
+  text-indent: 1em;
+}
+
+h2 {
+  font-size: xx-large;
+  padding: 2em;
+  text-align: right;
+}
+
+h3 {
+  position: relative;
+  text-align: left;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  font-weight: normal;
+  text-align: left;
+  font-size: xx-large;
+  margin-bottom: 0.5em;
+  height: 100%;
+  color: #343434;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+article {
+  margin-top: 0;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  font-weight: lighter;
+  font-size: large;
+}
+
+p {
+  font-family: Roboto-Regular, Arial, sans-serif;
+  color: #666;
+}
+
+.about {
+  grid-area: sec2;
+  color: black;
+  text-align: left;
+  font-size: medium;
+}
+
+/* .container {
+  width: 90%;
+  margin: 2rem auto;
+} */
+
+/*footer*/
+
+.navbar_footer {
+  z-index: 1;
+  grid-area: foot;
+  height: 4em;
+  overflow: visible;
+  background-color: #2b2d2f;
+  position: relative;
+  margin-top: 10em;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding: 12.5px 50px 50px 50px;
+}
+
+.navbar_footer a {
+  font-family: Roboto-Regular, Arial, sans-serif;
+  float: right;
+  display: inline-block;
+  color: white;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+  position: relative;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.navbar_footer b {
+  font-family: Roboto-Regular, Arial, sans-serif;
+  display: inline-block;
+  color: white;
+  text-align: right;
+  padding: 5px 5px;
+  text-decoration: none;
+  font-size: LARGER;
+  font-weight: lighter;
+}
+
+.navbar_footer a:hover {
+  background: none;
+  color: #05c54e;
+}
+
+/* Start Button */
+.startButton {
+  animation: glowing 3000ms infinite;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  background-color: #2b2d2f;
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Start button on hover & focus */
+.startButton:hover,
+.startButton:focus {
+  animation: none;
+  outline: none;
+  background-color: #05c54e;
+  box-shadow: 0 0 10px#2b2d2f;
+  border-radius: 10px;
+}
+
+/* Bits Button */
+#bitList {
+  visibility: hidden;
+}
+
+#selectMaterial,
+#thickness,
+#rpm {
+  width: 45%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  background-color: white;
+  color: #666;
+  border: 3px solid #05c54e;
+  box-shadow: 0 0 10px#2b2d2f;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  z-index: 1;
+}
+
+#selectMaterial:focus,
+#thickness:hover,
+#rpm:hover {
+  animation: glowing-outer 3000ms infinite;
+}
+
+.materialButton:focus {
+  outline: none;
+  color: #666;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.dropdown-content:hover {
+  outline: none;
+  color: #666;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#thickness,
+#rpm {
+  visibility: hidden;
+}
+
+#enterThickness,
+#enterRPM,
+#displayInput {
+  font-family: Roboto-Regular, Arial, sans-serif;
+  width: 75%;
+  font-size: 20px;
+  cursor: text;
+  color: #666;
+  border: none;
+  outline: none;
+}
+
+/* Material button glow effect */
+@keyframes glowing-outer {
+  0% {
+    background-color: none;
+    box-shadow: 0 0 5px#05c54e;
+  }
+  50% {
+    background-color: none;
+    box-shadow: 0 0 20px #2b2d2f;
+  }
+  100% {
+    background-color: none;
+    box-shadow: 0 0 5px #05c54e;
+  }
+}
+
+/* Start button glow effect */
+@keyframes glowing {
+  0% {
+    background-color: #2b2d2f;
+    box-shadow: 0 0 5px#05c54e;
+  }
+  50% {
+    background-color: #05c54e;
+    box-shadow: 0 0 20px #2b2d2f;
+  }
+  100% {
+    background-color: #2b2d2f;
+    box-shadow: 0 0 5px#05c54e;
+  }
+}
+
+/* The Modal (background) */
+.modal,
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  font-family: Roboto-Regular, Arial, sans-serif;
+  color: #2b2d2f;
+  background-color: #fefefe;
+  height: auto;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 3px solid #05c54e;
+  border-radius: 10px;
+  box-shadow: 0 0 10px#2b2d2f;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #2b2d2f;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #05c54e;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  /* padding-top: .25em;
+  list-style-type: circle; */
+}
+
+ul li {
+  padding: .25em;
+  font-family: Roboto-Regular, Arial, sans-serif;
+  color: #666;
+  list-style-type: circle;
+  list-style-position: inside;
+  border-radius: 10px;
+}
+
+ul li:hover {
+  background: #05c54e;
+  color: white;
+}
+
+/* The container <div> - needed to position the dropdown content */
+/* .dropdown {
+  z-index: 2;
+  border-block: none;
+  position: relative;
+  display: inline-block;
+}  */
+
+/* Dropdown Content (Hidden by Default) */
+/* .dropdown-content {
+  margin-top: 10px;
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+} */
+
+/* Options inside the dropdown */
+/* .dropdown-content a {
+  Font-Family: Roboto-Regular, Arial, sans-serif;
+  color: #666;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 10px;
+} */
+
+/* .dropdown-content:hover { */
+/* Font-Family: Roboto-Regular, Arial, sans-serif;
+  color: white;
+  background-color: #05c54e;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 10px;
+} */
+
+/* Change color of dropdown links on hover */
+/* .dropdown-content a:hover {background-color: #ddd} */
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+/* .show {display:block;} */

@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Bits Blades Belts">
+    <!--<meta name="keywords" content="VICOM-128, HTML Contact Form">-->
+    <meta name="keywords" content="Zund, Esko, Kongsberg, MCT, Mikkelsen">
+    <meta name="author" content="Nikolai Mikkelsen">
+    <!--Meta data above-->
+    <title>
+        Bits Blades Belts
+    </title>
+    <!--Title-->
+    <link rel="stylesheet" href="css/master.css">
+    <!--Link to style sheet-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+</head>
+
+
+<body>
+    <div class="page">
+        <header>
+            <div class="img_header">
+                <img src="images/headLogo.png" alt="HOME" />
+                <h1 class="blink">YOUR TRUSTED CONSUMABLES PROVIDER</h1>
+            </div>
+        </header>
+
+        <nav id="mobile_menu"></nav>
+        <nav id="nav_menu">
+            <ul>
+                <li>
+                    <a href="index.html" title="Home">
+                        <img src="images/home.png" alt="HOME" />
+                    </a>
+                </li>
+                <li class="lastItem">
+                    <a href="cnc_calculator.html">CNC CALCULATOR</a>
+                </li>
+                <li>
+                    <a href="about.html">ABOUT US</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <main>
+
+            <article class="marginUpper boxit">
+                <h3>Welcome to the CNC Calculator</h3>
+                <p>
+                    The CNC Calculator is the first step in developing a filtering system that will allow a customer to
+                    select a material and thickness of material
+                    to be processed. This will then provide a list of bits (products) that are compatible with the
+                    material and thickness. Once the material and thickness
+                    are determined and the bit selected, the calculator will then ask the user to enter the max RPM of
+                    the spindle. From there the application will calculate
+                    the feed rate, number of passes, and the RPM to process at.
+                </P>
+
+                <p>
+                    <br />Next semester the goal is to port this to PHP and expand on it the functionality to be able to
+                    filter by machine (manufacture),
+                    material group, sub-category, system tool options available, and will then recommend the milling or
+                    cutting tool and its feed rates,
+                    and if applicable, the number of passes and RPM.
+                </p>
+            </article>
+
+            <article class="marginUpper boxit">
+                <h3>Click Below To Select Start the CNC Calculator</h3>
+            </article>
+
+
+
+            <!-- Trigger/Open The Modal -->
+            <button id="startButton" class="button">OPEN CALCULATOR</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <select id="selectMaterial"></select>
+
+                    <div id="thickness">
+                        <!-- <input id="enterThickness"> -->
+                        <input id='enterThickness' class="input" type="number" min="0" max="50" step="1"
+                            placeholder='Enter Material Thickness in Millimeters' /><span class="input-group-text"> /MM
+                        </span>
+                    </div>
+
+
+
+                    <div id="rpm">
+                        <!-- <input id="enterThickness"> -->
+                        <input id='enterRPM' class="input" type="number" min="5000" max="60000" step="5000"
+                            placeholder='Enter Max Spindle RPM' /><span class="input-group-text"> /RPM </span>
+                    </div>
+
+                    <div id="bitList">
+                        <button id="bitsButton" class="button">SHOW AVAILABLE MILLING BITS</button>
+
+                    </div>
+                    <!-- <button id="calcButton" class="calcButton">CALCULATE CUTTING PARAMETERS</button> -->
+
+                </div>
+            </div>
+
+            <div id="myModal2" class="modal2">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="displayInput"></div>
+                    <select id="displayBits"></select>
+
+                    <div id="selectBit">
+
+                        <button id="selectBitsButton" class="button">SELECT BIT AND CALCULATE</button>
+
+                        <div id="noBits">No router bits are available for this material and/or thickness.
+
+                            <button id="startOver" class="button">START OVER</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+    </div>
+
+</body>
+
+</main>
+
+
+<footer>
+    <div class="navbar_footer">
+        <b>
+            <a href="termsConditions.html">TERMS & CONDITIONS</a>
+        </b>
+        <a>Copyright 2020 &copy; BitBladesBelts.com. All rights reserved</a>
+        <a href="https://www.americanexpress.com/" target="_blank">
+            <img src="images/amex.png" alt="AMEX" />
+        </a>
+        <a href="https://www.visa.com/" target="_blank">
+            <img src=" images/visa.png" alt="VISA" />
+        </a>
+        <a href="https://www.mastercard.us/" target="_blank">
+            <img src=" images/mc.png" alt="Masercard" />
+        </a>
+        <a href="https://www.paypal.com/" target="_blank">
+            <img src=" images/paypal.jpg" alt="PayPal" />
+        </a>
+    </div>
+</footer>
+</div>
+
+</body>
+
+<script src="script.js"></script>
+<!--Link to scripts-->
+
+</html>

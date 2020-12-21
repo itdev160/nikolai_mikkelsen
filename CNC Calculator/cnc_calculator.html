@@ -63,11 +63,8 @@
                 </P>
 
                 <p>
-                    <br />Next semester the goal is to port this to PHP and expand on it the functionality to be able to
-                    filter by machine (manufacture),
-                    material group, sub-category, system tool options available, and will then recommend the milling or
-                    cutting tool and its feed rates,
-                    and if applicable, the number of passes and RPM.
+                    <br />Please note, as this application is still under development and at the moment requires a reload of
+                    page to reset the calculator. Accomplished by using a refreshPage call on exit of modal or the start over button.
                 </p>
             </article>
 
@@ -78,43 +75,84 @@
 
 
             <!-- Trigger/Open The Modal -->
-            <button id="startButton" class="startButton">OPEN CALCULATOR</button>
+            <button id="startButton" class="button">OPEN CALCULATOR</button>
 
             <!-- The Modal -->
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <select id="selectMaterial">
-
-                        <div id="myDropdown" class="dropdown-content"> </div>
-
-                    </select>
+                    <span class="close" id="close1" onClick="refreshPage()">&times;</span>
+                    <select id="selectMaterial"></select>
 
                     <div id="thickness">
                         <!-- <input id="enterThickness"> -->
-                        <input id='enterThickness' class="input" type="number" min="0" max="50" step="1" placeholder='Enter Material Thickness in Millimeters'/><span class="input-group-text"> /MM </span>
+                        <input id='enterThickness' class="input" type="number" min="0" max="50" step="1"
+                            placeholder='Enter Material Thickness in Millimeters' /><span class="input-group-text"> /MM
+                        </span>
                     </div>
-
-            
 
                     <div id="rpm">
                         <!-- <input id="enterThickness"> -->
-                        <input id='enterRPM' class="input" type="number" min="5000" max="60000" step="5000" placeholder='Enter Max Spindle RPM'/><span class="input-group-text"> /RPM </span>
+                        <input id='enterRPM' class="input" type="number" min="5000" max="60000" step="5000"
+                            placeholder='Enter Max Spindle RPM' /><span class="input-group-text"> /RPM </span>
                     </div>
 
                     <div id="bitList">
-                        <button id="bitsButton" class="startButton">SHOW AVAILABLE MILLING BITS</button>
+                        <button id="bitsButton" class="button">SHOW AVAILABLE MILLING BITS</button>
+
                     </div>
                     <!-- <button id="calcButton" class="calcButton">CALCULATE CUTTING PARAMETERS</button> -->
-
-                    
 
                 </div>
             </div>
 
-</body>
+            <div id="myModal2" class="modal2">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close" id="close2" onClick="refreshPage()">&times;</span>
+                    <div id="displayInput"></div>
+                    <select id="displayBits"></select>
+
+                    <div id="selectBit">
+
+                        <button id="selectBitButton" class="button">SELECT BIT AND CALCULATE</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+    <div id="myModal3" class="modal3">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" id="close3" onClick="refreshPage()">&times;</span>
+
+            <div id="noBits">No router bits are available for this material and/or thickness.
+
+                <button id="startOverButton" class="button" onClick="refreshPage()">START OVER</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal4" class="modal4">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" id="close4" onClick="refreshPage()">&times;</span>
+
+            <div id="displayBit">
+
+                <button id="startOverButton2" class="button" onClick="refreshPage()">START OVER</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </main>
 
@@ -132,14 +170,13 @@
             <img src=" images/visa.png" alt="VISA" />
         </a>
         <a href="https://www.mastercard.us/" target="_blank">
-            <img src=" images/mc.png" alt="Masercard" />
+            <img src=" images/mc.png" alt="Mastercard" />
         </a>
         <a href="https://www.paypal.com/" target="_blank">
             <img src=" images/paypal.jpg" alt="PayPal" />
         </a>
     </div>
 </footer>
-</div>
 
 </body>
 

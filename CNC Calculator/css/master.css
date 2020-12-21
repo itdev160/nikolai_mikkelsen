@@ -13,7 +13,6 @@ nav_menu {
   grid-area: navi;
 }
 
-
 footer {
   grid-area: foot;
 }
@@ -69,14 +68,13 @@ header {
 
 .img_header {
   border-radius: 50%;
-  -webkit-transition: -webkit-transform .8s ease-in-out;
-          transition:         transform .8s ease-in-out;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
 }
 .img_header:hover {
   -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-
 
 /*Navigation menu CSS*/
 #nav_menu {
@@ -159,137 +157,6 @@ header {
   z-index: 2;
 }
 
-/* Contact form
-#contact_form {
-  grid-area: sec1;
-  font-family: Roboto-Regular, Arial, sans-serif;
-  max-width: 100%;
-  min-width: 10%;
-}
-
-fieldset {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding-top: 0.5em;
-  border-radius: 5px;
-}
-
-legend {
-  text-align: left;
-  height: 100%;
-  font-size: 2em;
-  color: black;
-  margin-bottom: 0.5em;
-}
-
-contact_message {
-  font-size: 90%;
-  float: left;
-  margin-left: 1em;
-  margin-bottom: 1em;
-  height: 2em;
-  width: 50em;
-  text-indent: 0;
-}
-
-label,
-input,
-select {
-  color: #343434;
-  font-weight: bold;
-  font-size: 90%;
-  text-indent: 0.5em;
-}
-
-label {
-  float: left;
-  width: 12em;
-  text-align: right;
-}
-
-textarea,
-select {
-  margin-left: 1em;
-  height: 6em;
-  width: 40em;
-  border-radius: 5px;
-  padding-left: 4px;
-  border-color: black;
-}
-
-input,
-select {
-  font-weight: normal;
-  height: 2em;
-  width: 30em;
-  margin-left: 1em;
-  margin-bottom: 0.5em;
-  border-radius: 5px;
-  text-indent: 0.5em;
-}
-
-input:required,
-input[required] {
-  border: 1px solid red;
-  border-radius: 5px;
-}
-
-input:valid {
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
-input:invalid {
-  box-shadow: none;
-  border-radius: 5px;
-}
-
-br {
-  clear: both;
-}
-
-#button_send {
-  font-size: large;
-  position: center;
-  width: 6em;
-  height: 2em;
-  border-radius: 6px;
-  color: white;
-  background-color: #05c54e;
-  font-weight: bold;
-  border: none;
-  text-indent: 0;
-}
-
-#button_send:hover {
-  background-color: white;
-  color: black;
-  border: 2px #05c54e;
-}
-
-#button_cancel {
-  font-size: large;
-  position: center;
-  width: 6em;
-  height: 2em;
-  border-radius: 6px;
-  color: white;
-  background-color: red;
-  font-weight: bold;
-  border: none;
-  text-indent: 0;
-}
-
-#button_cancel:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid red;
-}
-
-.buttonHolder {
-  text-align: center;
-} */
-
 h1 {
   float: left;
   padding-top: 0;
@@ -301,7 +168,7 @@ h1 {
 }
 
 .title {
-  margin-top: .5em;
+  margin-top: 0.5em;
   text-align: left;
   height: 100%;
   font-size: 2em;
@@ -309,7 +176,7 @@ h1 {
   margin-bottom: 0.5em;
   height: 100%;
   font-family: Roboto-Regular, Arial, sans-serif;
- }
+}
 
 @keyframes blink {
   from {
@@ -442,9 +309,9 @@ p {
 }
 
 /* Start Button */
-.startButton {
+.button {
   animation: glowing 3000ms infinite;
-  Font-Family: Roboto-Regular, Arial, sans-serif;
+  font-family: Roboto-Regular, Arial, sans-serif;
   background-color: #2b2d2f;
   color: white;
   border: none;
@@ -454,27 +321,38 @@ p {
   border-radius: 10px;
 }
 
-
 /* Start button on hover & focus */
-.startButton:hover, .startButton:focus {
+.button:hover,
+.button:focus {
   animation: none;
   outline: none;
   background-color: #05c54e;
   box-shadow: 0 0 10px#2b2d2f;
   border-radius: 10px;
-  
 }
 
-/* Bits Button */
-#bitList {
+/* No Bits */
+#bitsList, .noBits {
+  color: #666;
+  font-size: larger;
+  font-family: Roboto-Regular, Arial, sans-serif;
   visibility: hidden;
 }
 
-#selectMaterial, #thickness, #rpm {
+#startOverButton, #startOverButton2 {
+  margin-top: 1em;
+  display: flex;
+  visibility: hidden;
+}
+
+#selectMaterial,
+#thickness,
+#rpm, #displayBits, .noBits {
+  position: relative;
   width: 45%;
   margin-top: 1em;
   margin-bottom: 1em;
-  Font-Family: Roboto-Regular, Arial, sans-serif;
+  font-family: Roboto-Regular, Arial, sans-serif;
   background-color: white;
   color: #666;
   border: 3px solid #05c54e;
@@ -487,38 +365,39 @@ p {
   z-index: 1;
 }
 
-#selectMaterial:focus, #thickness:hover, #rpm:hover {
+#selectMaterial:focus,
+#thickness:hover,
+#rpm:hover, #displayBits:hover {
   animation: glowing-outer 3000ms infinite;
 }
 
 .materialButton:focus {
-  
   outline: none;
   color: #666;
   background-color: white;
   border-radius: 10px;
-  
 }
 
-.dropdown-content:hover
-{
+.dropdown-content:hover {
   outline: none;
   color: #666;
   background-color: white;
   border-radius: 10px;
-  
 }
 
-#thickness, #rpm {
+#thickness,
+#rpm {
   visibility: hidden;
 }
 
-#enterThickness, #enterRPM {
-  Font-Family: Roboto-Regular, Arial, sans-serif;
+#enterThickness,
+#enterRPM,
+#displayInput {
+  font-family: Roboto-Regular, Arial, sans-serif;
   width: 75%;
   font-size: 20px;
   cursor: text;
-  color:#666;
+  color: #666;
   border: none;
   outline: none;
 }
@@ -526,7 +405,7 @@ p {
 /* Material button glow effect */
 @keyframes glowing-outer {
   0% {
-    background-color:none;
+    background-color: none;
     box-shadow: 0 0 5px#05c54e;
   }
   50% {
@@ -556,7 +435,8 @@ p {
 }
 
 /* The Modal (background) */
-.modal {
+.modal,
+.modal2, .modal3, .modal4 {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 2; /* Sit on top */
@@ -565,14 +445,14 @@ p {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
   font-family: Roboto-Regular, Arial, sans-serif;
-  color: #2b2d2f;
+  color: #666;
   background-color: #fefefe;
   height: auto;
   margin: 15% auto; /* 15% from the top and centered */
@@ -585,63 +465,19 @@ p {
 
 /* The Close Button */
 .close {
+  position: relative;
   color: #2b2d2f;
   float: right;
   font-size: 50px;
   font-weight: bold;
+  top: -5px;
+  right: 5px;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: #05c54e;
   text-decoration: none;
   cursor: pointer;
 }
 
 
-
-/* The container <div> - needed to position the dropdown content */
-/* .dropdown {
-  z-index: 2;
-  border-block: none;
-  position: relative;
-  display: inline-block;
-}  */
-
-/* Dropdown Content (Hidden by Default) */
-/* .dropdown-content {
-  margin-top: 10px;
-  display: none;
-  position: relative;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 10px;
-} */
-
-/* Options inside the dropdown */
-/* .dropdown-content a {
-  Font-Family: Roboto-Regular, Arial, sans-serif;
-  color: #666;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border-radius: 10px;
-} */
-
-/* .dropdown-content:hover { */
-  /* Font-Family: Roboto-Regular, Arial, sans-serif;
-  color: white;
-  background-color: #05c54e;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border-radius: 10px;
-} */
-
-/* Change color of dropdown links on hover */
-/* .dropdown-content a:hover {background-color: #ddd} */
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-/* .show {display:block;} */
